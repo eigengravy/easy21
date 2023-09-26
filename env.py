@@ -16,6 +16,10 @@ class Easy21:
             False,
         )
 
+    @staticmethod
+    def actions() -> Tuple[int, int]:
+        return (0, 1)
+
     def draw(self) -> int:
         key, a = random.split(self.key)
         self.key, b = random.split(key)
@@ -28,8 +32,8 @@ class Easy21:
         dealer, player, terminal = state
         assert 1 <= dealer <= 10
         assert 1 <= player <= 21
-        assert terminal == False
-        assert action in [0, 1]
+        assert terminal is False
+        assert action in self.actions()
 
         if action == 0:
             player += self.draw()
